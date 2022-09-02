@@ -28,6 +28,28 @@ function EditableTodo({ todo, update, remove }) {
   function handleSave(formData) {
     update(formData);
     setIsEditing(false);
+
+  }
+
+  /** displays the edit/delete buttons */
+
+  function buttons() {
+
+    return (
+    <div className="float-end text-sm-end">
+     <button
+          className="EditableTodo-toggle btn-link btn btn-sm"
+          onClick={toggleEdit}>
+          Edit
+      </button>
+      <button
+          className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          onClick={handleDelete}
+          id={todo.id}>
+          Del
+      </button>
+    </div>
+    );
   }
 
   return (
@@ -39,21 +61,9 @@ function EditableTodo({ todo, update, remove }) {
       />}
 
       <div className="mb-3">
-        <div className="float-end text-sm-end">
-          <button
-            className="EditableTodo-toggle btn-link btn btn-sm"
-            onClick={toggleEdit}>
-            Edit
-          </button>
-          <button
-            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-            onClick={handleDelete}
-            id={todo.id}>
-            Del
-          </button>
-        </div>
 
-        {!isEditing && <Todo todo={todo} />}
+          {!isEditing && buttons()}
+          {!isEditing && <Todo todo={todo} />}
 
       </div>
 

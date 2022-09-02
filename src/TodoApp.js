@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
-// import TopTodo from "./TopTodo";
+import TopTodo from "./TopTodo";
 import EditableTodoList from "./EditableTodoList";
 import TodoForm from "./TodoForm";
 
@@ -44,26 +44,37 @@ function remove(id) {
 
   setTodos(todos => todos.filter(todo => todo.id !== id));
 }
-//FIXME:
+
+// /**contains todo list */
+// function evaluateTodos(){
+//   if (todos.length === 0){
+//     return true;
+//   }
+//   return false;
+// }
+
 
 return (
   <main className="TodoApp">
     <div className="row">
 
       <div className="col-md-6">
+        { todos.length &&
         <EditableTodoList
           todos={todos}
           remove={remove}
           update={update}
-        /> OR
-        <span className="text-muted">You have no todos.</span>
+        />}
+
+      {!todos.length && <span className="text-muted">You have no todos.</span>
+      }
       </div>
 
       <div className="col-md-6">
         (if no top todo, omit this whole section)
         <section className="mb-4">
           <h3>Top Todo</h3>
-          {/* <TopTodo /> */}
+          <TopTodo />
         </section>
 
         <section>
