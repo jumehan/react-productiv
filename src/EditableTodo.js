@@ -9,6 +9,8 @@ import TodoForm from "./TodoForm";
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
+ * //TODO: add state description
+ *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
@@ -36,19 +38,19 @@ function EditableTodo({ todo, update, remove }) {
   function buttons() {
 
     return (
-    <div className="float-end text-sm-end">
-     <button
+      <div className="float-end text-sm-end">
+        <button
           className="EditableTodo-toggle btn-link btn btn-sm"
           onClick={toggleEdit}>
           Edit
-      </button>
-      <button
+        </button>
+        <button
           className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
           onClick={handleDelete}
           id={todo.id}>
           Del
-      </button>
-    </div>
+        </button>
+      </div>
     );
   }
 
@@ -62,8 +64,9 @@ function EditableTodo({ todo, update, remove }) {
 
       <div className="mb-3">
 
-          {!isEditing && buttons()}
-          {!isEditing && <Todo todo={todo} />}
+        {!isEditing && buttons()}
+        {!isEditing && <Todo
+          todo={todo} />}
 
       </div>
 
