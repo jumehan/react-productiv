@@ -23,44 +23,41 @@ function TodoApp({ initialTodos = [] }) {
   /** add a new todo to list */
   function create(newTodo) {
     let todo = { ...newTodo, id: uuid() };
-    setTodos(todos => [...todos, todo]);
+    setTodos((todos) => [...todos, todo]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    setTodos(todos => todos.map(todo =>
-      updatedTodo.id === todo.id ? updatedTodo : todo));
+    setTodos((todos) =>
+      todos.map((todo) => (updatedTodo.id === todo.id ? updatedTodo : todo))
+    );
   }
-
 
   /** delete a todo by id */
   function remove(id) {
-    setTodos(todos => todos.filter(todo => todo.id !== id));
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }
 
   return (
     <main className="TodoApp">
       <div className="row">
-
         <div className="col-md-6">
-          {(!todos.length)
-            ?
+          <h3 className="mb-3">Todos</h3>
+          {!todos.length ? (
             <span className="text-muted">You have no todos.</span>
-            :
-            <EditableTodoList
-              todos={todos}
-              remove={remove}
-              update={update} />}
+          ) : (
+            <EditableTodoList todos={todos} remove={remove} update={update} />
+          )}
         </div>
 
         <div className="col-md-6">
           <section className="mb-4">
             <h3>Top Todo</h3>
-            {(todos.length)
-              ?
+            {todos.length ? (
               <TopTodo todos={todos} />
-              :
-              <span className="text-muted">You have no todos.</span>}
+            ) : (
+              <span className="text-muted">You have no todos.</span>
+            )}
           </section>
 
           <section>
@@ -75,7 +72,6 @@ function TodoApp({ initialTodos = [] }) {
             />
           </section>
         </div>
-
       </div>
     </main>
   );

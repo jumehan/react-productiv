@@ -1,6 +1,8 @@
 # 🪶 Prøductïv
 #### todo app
->  👩🏻‍💻 small todo project designing & building small reusable react components
+>  👩🏻‍💻 small todo react project to practice front-end react development
+
+#### ✨ features ✨:
 * add single todos
 * list all todos
 * edit and delete todos
@@ -18,17 +20,22 @@
 * framework: React
 
 ## issues & todos:
-* refactor code
+- [ ] refactor code
+- [ ] fix issue with fireEvent in tests
+- [x] write tests
 
 ### future functionality:
-* add inspiration quotes
-* add completed status to todos
-* add validation
-* SASS styling
-* saving todos to localStorage
+- [x] add inspiration quotes / connect to a Quotes API
+- [ ] add completed status to todos
+- [ ] add validation
+- [ ] SASS styling
+- [ ] connect to a image API and cycle through images
+- [ ] saving todos to localStorage
+- [ ] connect to a weather API to show current temp
+
 
 ## setup:
-in the project directory, you can run:
+In the project directory, you can run:
 ##### `npm install`
 ##### `npm start`
 

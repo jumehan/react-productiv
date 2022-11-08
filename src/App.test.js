@@ -12,9 +12,13 @@ describe("productiv app", function () {
     expect(result.queryByText("Prøductïv")).toBeInTheDocument();
   });
 
+  it("contains todo list", function () {
+    const result = render(<App />);
+    expect(result.queryByText("Todos")).toBeInTheDocument();
+  })
+
   it ("rendered quotes app", function () {
     const result = render(<App />);
     expect(result.queryByText("Click here for an inspirational quøte!")).toBeInTheDocument();
   });
 });
-
