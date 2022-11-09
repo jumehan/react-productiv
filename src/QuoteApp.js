@@ -19,14 +19,14 @@ function QuoteApp() {
 
   /** retrieve a random quote from quotes API */
   async function getQuote() {
-    const response = await axios.get("https://inspo-quotes-api.herokuapp.com/quotes/random");
+    const response = await axios.get(
+      "https://inspo-quotes-api.herokuapp.com/quotes/random"
+    );
     const randomQuote = response.data.quote;
     setQuote(randomQuote);
   }
 
-  return (
-    <QuoteDisplay getQuote={getQuote} quote={quote}/>
-  );
+  return <QuoteDisplay getQuote={getQuote} quote={quote} />;
 }
 
 export default QuoteApp;
